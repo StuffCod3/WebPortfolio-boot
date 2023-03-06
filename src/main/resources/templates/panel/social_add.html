@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать соцсети</title>
+</head>
+<body>
+
+    <p>Заполните форму</p>
+
+    <form th:method="POST" th:action="@{/panel/social/add}" th:object="${socials}">
+
+        <label for="name">Введите название</label>
+        <input type="text" th:field="*{name}" id="name">
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        <label for="quantity">Число подписчиков</label>
+        <input type="text" th:field="*{quantity}" id="quantity">
+        <div th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></div>
+        <label for="image">Название картинки</label>
+        <input type="text" th:field="*{image}" id="image">
+        <div th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></div>
+        <label for="url">Ссылка</label>
+        <input type="text" th:field="*{url}" id="url">
+        <div th:if="${#fields.hasErrors('url')}" th:errors="*{url}"></div>
+        <br>
+        <input type="submit" value="Создать">
+    </form>
+</body>
+</html>
